@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+  <script src="java.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cucak</title>
+</head>
+
+<body>
+  <div id="headDiv">
+    <div>
+      <div id="buttonDiv">
+        <button id="SwitchButton" type="button" onclick="Switch()">Switch</button>
+        <button id="AddButton" type="button" onclick="Open()">Add User</button>
+      </div>
+      <div id="TandF">
+      <table id="table1">
+        <tr id="trhead">
+          <th id="demo">UserName</th>
+          <th>Password</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Some Func</th>
+        </tr>
+      </table>
+      <div id="EditDiv">
+      <form id="EditForm">
+        <div id="buttonCloseEdit">
+          <button type="button" id="buttonCloseEdit2" onclick="Close2()">Close</button><br>
+        </div>
+        <label for="UserName">User Name</label><br>
+        <input type="text" id="User2" name="UserName"><br>
+        <label for="Password">Password</label><br>
+        <input type="password" id="Pass2" name="Password"><br>
+        <label for="FirstName">First Name</label><br>
+        <input type="text" id="fName2" name="FirstName"><br>
+        <label for="LastName">Last Name</label><br>
+        <input type="text" id="lName2" name="LastName"><br><br>
+        <div id="buttonSave2">
+          <button type="reset" id="SaveEdit" >Edit</button>
+        </div>
+      </form>
+      </div>
+      </div>
+      <div id="formId">
+        <form id="myForm">
+          <div id="buttonClose">
+            <button type="button" id="buttonClose2" onclick="Close()">Close</button><br>
+          </div>
+          <h1>Your Info</h1>
+          <label for="UserName">User Name</label><br>
+          <input type="text" id="User" name="UserName"><br>
+          <label for="Password">Password</label><br>
+          <input type="password" id="Pass" name="Password"><br>
+          <label for="FirstName">First Name</label><br>
+          <input type="text" id="fName" name="FirstName"><br>
+          <label for="LastName">Last Name</label><br>
+          <input type="text" id="lName" name="LastName"><br><br>
+          <div id="buttonSave">
+            <button type="reset" onclick="StartFunc()">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

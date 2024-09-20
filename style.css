@@ -1,0 +1,184 @@
+table, th, td {
+  border: 1px solid rgb(28, 26, 166);
+  border-collapse: collapse;
+}
+
+#headDiv {
+  background-color: aqua;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  height: 2500px;
+}
+
+body {
+  background-color: aqua;
+}
+
+
+#buttonDiv {
+  display: flex;
+  justify-content: center;
+  margin-left: 545px;
+}
+
+table {
+  width: 700px;
+  height: 20px;
+}
+
+#table1 {
+
+  margin-left: 300px;
+
+}
+
+th, td {
+  background-color: beige;
+  text-align: center;
+}
+
+
+button {
+  width: 50px;
+  height: 50px;
+}
+
+#myForm {
+  visibility: hidden; 
+}
+
+#formId {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 10%;
+  bottom: 10%;
+  width: 200px;
+}
+
+#trhead>th {
+
+  font-size: 20px;
+
+}
+
+  #EditForm {
+    visibility: hidden;
+  }
+
+
+form {
+  margin-left: 1100px;
+  border: 3px solid blue;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: beige;
+}
+
+#buttonClose {
+
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: end;
+
+}
+
+#buttonSave {
+
+  display: flex;
+  justify-content: center;
+
+}
+
+h1 {
+  padding-bottom: 80px;
+}
+
+.ButtonHead {
+  transition-duration: 0.4s;
+  width: 50%;
+  background-color: beige;
+  color: black; 
+  cursor: pointer;
+}
+
+.ButtonHead:hover {
+  background-color: maroon;
+  color: white;
+}
+
+.ButtonHead2 {
+  transition-duration: 0.4s;
+  width: 50%;
+  background-color: beige;
+  color: black; 
+  cursor: pointer;
+}
+
+.ButtonHead2:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+
+ #SwitchButton {
+  background-color: rgb(172, 136, 176);
+  padding: 10px 5px;
+  text-align:center;
+  width: 70px;
+  font-size: larger;
+  margin-bottom: 5px;
+  cursor: pointer;
+
+ }
+
+
+  #SwitchButton:active{
+
+  background-color: black;
+  color: white;
+
+  }
+
+  #AddButton{
+
+  background-color: rgb(172, 136, 176);
+  padding: 10px 5px;
+  text-align:center;
+  padding-top: 5px;
+  width: 70px;
+  font-size: medium;
+  cursor: pointer;
+
+  }
+
+  #AddButton:active{
+
+    background-color: black;
+    color: white;
+  
+    }
+
+    #EditDiv{
+    
+    float:left;
+    align-items: center;
+    }
+
+    #EditForm {
+      margin-left: 100px;
+      text-align: center;
+      width: 150px;
+
+    }
+
+
+    #TandF{
+
+      display: flex;
+      justify-content: flex;
+
+    }
