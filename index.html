@@ -13,22 +13,25 @@
     <div>
       <div id="buttonDiv">
         <button id="SwitchButton" type="button" onclick="Switch()">Switch</button>
-        <button id="AddButton" type="button" onclick="Open()">Add User</button>
+        <button id="AddButton" type="button" onclick="openAddUser()">Add User</button>
       </div>
       <div id="TandF">
       <table id="table1">
         <tr id="trhead">
-          <th id="demo">UserName</th>
+          <th>UserName</th>
           <th>Password</th>
           <th>FirstName</th>
           <th>LastName</th>
           <th>Some Func</th>
         </tr>
+        <tbody id="rowBody">
+
+        </tbody>
       </table>
       <div id="EditDiv">
-      <form id="EditForm">
+      <form id="editForm">
         <div id="buttonCloseEdit">
-          <button type="button" id="buttonCloseEdit2" onclick="Close2()">Close</button><br>
+          <button type="button" id="buttonCloseEdit2" onclick="closeAddUser()">Close</button><br>
         </div>
         <label for="UserName">User Name</label><br>
         <input type="text" id="User2" name="UserName"><br>
@@ -39,7 +42,7 @@
         <label for="LastName">Last Name</label><br>
         <input type="text" id="lName2" name="LastName"><br><br>
         <div id="buttonSave2">
-          <button type="reset" id="SaveEdit" >Edit</button>
+          <button type="reset" id="saveEdit" >Edit</button>
         </div>
       </form>
       </div>
@@ -47,7 +50,7 @@
       <div id="formId">
         <form id="myForm">
           <div id="buttonClose">
-            <button type="button" id="buttonClose2" onclick="Close()">Close</button><br>
+            <button type="button" id="buttonClose2" onclick="closeAddUser()">Close</button><br>
           </div>
           <h1>Your Info</h1>
           <label for="UserName">User Name</label><br>
@@ -59,7 +62,7 @@
           <label for="LastName">Last Name</label><br>
           <input type="text" id="lName" name="LastName"><br><br>
           <div id="buttonSave">
-            <button type="reset" onclick="startInfo()">Save</button>
+            <button type="reset" onclick="saveFunc()">Save</button>
           </div>
         </form>
       </div>

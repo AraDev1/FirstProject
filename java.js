@@ -1,16 +1,16 @@
-function Open() {
-   window.stop
+function openAddUser() {
+
    document.getElementById("myForm").style.visibility = "visible"
 
 }
 
-function Close() {
+function closeAddUser() {
 
    document.getElementById("myForm").style.visibility = "hidden"
 
 }
 
-function Close2() {
+function closeEdit() {
 
    document.getElementById("EditForm").style.visibility = "hidden"
 
@@ -26,39 +26,42 @@ let Num;
 let renderNum = 0
 
 
-function startInfo(){
+function saveFunc() {
    var userName = document.getElementById("User").value;
    var Password = document.getElementById("Pass").value;
    var fistName = document.getElementById("fName").value;
    var lastName = document.getElementById("lName").value;
 
-  // startFunc(userName, Password, fistName, lastName)
-   infoStart(userName, Password, fistName, lastName)
+   giveInfo(userName, Password, fistName, lastName)
 }
 
-function infoStart(userName, Password, fistName, lastName){
-   let anotherInfo = [userName, Password, fistName, lastName];
+function giveInfo(userName, Password, fistName, lastName) {
+   let anotherInfo = {
+      User:userName,
+       Password:Password,
+        fName:fistName,
+         lName:lastName
+      };
    let i = Info.length
    Info[i] = anotherInfo;
    render()
 }
 
-function render(){
-   debugger
-   for(i = 0; i < renderNum; i++){
-      let deleteHeader = document.getElementById(i + "/" + 5)
-      deleteHeader.remove()
-      headerNum = 0
+function render() {
+
+   headerNum = 0
+   const element = document.getElementById("rowBody");
+   while (element.firstChild) {
+      element.removeChild(element.firstChild);
    }
-   renderNum = 0
-   for(n = 0; n < Info.length; n++){
-      renderNum++
-      const table = document.getElementById("table1");
+
+   for (let n = 0; n < Info.length; n++) {
+
       const headerRow = document.createElement("tr");
-      headerRow.setAttribute("id" , headerNum + "/" + 5);
+      headerRow.setAttribute("id", headerNum + "/" + 5)
       let cellNum = 1;
 
-      Info[n].forEach((headerText) => {
+      Object.values(Info[n]).forEach((headerText) => {
          const headerCell = document.createElement("th");
          headerCell.innerHTML = headerText;
          headerCell.setAttribute("id", headerNum + "/" + cellNum);
@@ -66,46 +69,44 @@ function render(){
          cellNum++
       });
 
-   const headerButton1 = document.createElement("button");
-   headerButton1.innerHTML = "Delete";
-   headerButton1.setAttribute("class", "ButtonHead")
-   headerButton1.setAttribute("id", headerNum);
-   headerButton1.onclick = function(){
+      const headerButton1 = document.createElement("button");
+      headerButton1.innerHTML = "Delete";
+      headerButton1.setAttribute("class", "ButtonHead")
+      headerButton1.setAttribute("id", headerNum);
+      headerButton1.onclick = function () {
 
-      let ThisNum = this.id
-      Info.splice(ThisNum , 1)
-      headerNum = Info.length
-      render()
-   
-   };
+         let thisNum = this.id
+         Info.splice(thisNum, 1)
+         headerNum = Info.length
+         render()
 
-    const headerButton2 = document.createElement("button");
-   headerButton2.innerHTML = "Edit";
-   headerButton2.setAttribute("class", "ButtonHead2")
-   headerButton2.setAttribute("id", headerNum + "/" + 6);
-   headerButton2.onclick = function(){
-      document.getElementById("EditForm").style.visibility = "visible"
-      Num = headerButton2.id.split("/")[0]
+      };
 
-   }
-   document.getElementById("SaveEdit").onclick = function(){
-      document.getElementById(Num + "/" + 1).textContent = document.getElementById("User2").value
-      document.getElementById(Num + "/" + 2).textContent = document.getElementById("Pass2").value
-      document.getElementById(Num + "/" + 3).textContent = document.getElementById("fName2").value
-      document.getElementById(Num + "/" + 4).textContent = document.getElementById("lName2").value
+      const headerButton2 = document.createElement("button");
+      headerButton2.innerHTML = "Edit";
+      headerButton2.setAttribute("class", "ButtonHead2")
+      headerButton2.setAttribute("id", headerNum + "/" + 6);
+      headerButton2.onclick = function () {
+         document.getElementById("editForm").style.visibility = "visible"
+         Num = headerButton2.id.split("/")[0]
 
-      Info[Num][0] = document.getElementById("User2").value
-      Info[Num][1] = document.getElementById("Pass2").value
-      Info[Num][2] = document.getElementById("fName2").value
-      Info[Num][3] = document.getElementById("lName2").value
+      }
+      document.getElementById("saveEdit").onclick = function () {
 
-      document.getElementById("EditForm").style.visibility = "hidden"
-   };
+         Info[Num].User = document.getElementById("User2").value
+         Info[Num].Password = document.getElementById("Pass2").value
+         Info[Num].fName = document.getElementById("fName2").value
+         Info[Num].lName = document.getElementById("lName2").value
 
-   headerNum++;
-   table.append(headerRow);
-   headerRow.append(headerButton1);
-   headerRow.append(headerButton2);
+         document.getElementById("EditForm").style.visibility = "hidden"
+
+         render()
+      };
+
+      headerNum++;
+      document.getElementById("rowBody").append(headerRow);
+      headerRow.append(headerButton1);
+      headerRow.append(headerButton2);
 
    }
 
