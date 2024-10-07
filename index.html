@@ -14,6 +14,7 @@
       <div id="buttonDiv">
         <button id="SwitchButton" type="button" onclick="Switch()">Switch</button>
         <button id="AddButton" type="button" onclick="openAddUser()">Add User</button>
+        <button id="AddButton" type="button" onclick="render()">Render</button>
       </div>
       <div id="TandF">
       <table id="table1">
@@ -22,25 +23,24 @@
           <th>Password</th>
           <th>FirstName</th>
           <th>LastName</th>
-          <th>Some Func</th>
+          <th>Properties</th>
         </tr>
         <tbody id="rowBody">
-
         </tbody>
       </table>
-      <div id="EditDiv">
+      <div id="editDiv">
       <form id="editForm">
         <div id="buttonCloseEdit">
-          <button type="button" id="buttonCloseEdit2" onclick="closeAddUser()">Close</button><br>
+          <button type="button" id="buttonCloseEdit2" onclick="closeEdit()">Close</button><br>
         </div>
         <label for="UserName">User Name</label><br>
-        <input type="text" id="User2" name="UserName"><br>
+        <input type="text" id="userEdit" name="UserName"><br>
         <label for="Password">Password</label><br>
-        <input type="password" id="Pass2" name="Password"><br>
+        <input type="text" id="passEdit" name="Password"><br>
         <label for="FirstName">First Name</label><br>
-        <input type="text" id="fName2" name="FirstName"><br>
+        <input type="text" id="fNameEdit" name="FirstName"><br>
         <label for="LastName">Last Name</label><br>
-        <input type="text" id="lName2" name="LastName"><br><br>
+        <input type="text" id="lNameEdit" name="LastName"><br><br>
         <div id="buttonSave2">
           <button type="reset" id="saveEdit" >Edit</button>
         </div>

@@ -63,7 +63,7 @@ button {
 
 }
 
-  #EditForm {
+  #editForm {
     visibility: hidden;
   }
 
@@ -97,7 +97,7 @@ h1 {
   padding-bottom: 80px;
 }
 
-.ButtonHead {
+.buttonHead {
   transition-duration: 0.4s;
   width: 50%;
   background-color: beige;
@@ -105,12 +105,12 @@ h1 {
   cursor: pointer;
 }
 
-.ButtonHead:hover {
+.buttonHead:hover {
   background-color: maroon;
   color: white;
 }
 
-.ButtonHead2 {
+.buttonHead2 {
   transition-duration: 0.4s;
   width: 50%;
   background-color: beige;
@@ -118,7 +118,7 @@ h1 {
   cursor: pointer;
 }
 
-.ButtonHead2:hover {
+.buttonHead2:hover {
   background-color: #04AA6D;
   color: white;
 }
@@ -162,13 +162,13 @@ h1 {
   
     }
 
-    #EditDiv{
+    #editDiv{
     
     float:left;
     align-items: center;
     }
 
-    #EditForm {
+    #editForm {
       margin-left: 100px;
       text-align: center;
       width: 150px;

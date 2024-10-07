@@ -1,106 +1,133 @@
 function openAddUser() {
 
-   document.getElementById("myForm").style.visibility = "visible"
+   document.getElementById("myForm").style.visibility = "visible";
 
-}
+};
 
 function closeAddUser() {
 
-   document.getElementById("myForm").style.visibility = "hidden"
+   document.getElementById("myForm").style.visibility = "hidden";
 
-}
+};
 
 function closeEdit() {
 
-   document.getElementById("EditForm").style.visibility = "hidden"
+   document.getElementById("editForm").style.visibility = "hidden";
 
-}
+};
 
 
-let Info = []
 
 let headerNum = 0;
 
-let Num;
+let num;
 
-let renderNum = 0
+let getFromStorage = JSON.parse(localStorage.getItem("info"))
+
+function infoStorage() {
+   localStorage.setItem("info", JSON.stringify(info))
+}
+const info = []
+
+   if (getFromStorage != null) {
+      for (let i = 0; i < getFromStorage.length; i++) {
+         info.push(getFromStorage[i])
+      }
+   }
 
 
 function saveFunc() {
-   var userName = document.getElementById("User").value;
-   var Password = document.getElementById("Pass").value;
-   var fistName = document.getElementById("fName").value;
-   var lastName = document.getElementById("lName").value;
+   const userName = document.getElementById("user").value;
+   const password = document.getElementById("Pass").value;
+   const fistName = document.getElementById("fName").value;
+   const lastName = document.getElementById("lName").value;
 
-   giveInfo(userName, Password, fistName, lastName)
-}
+   const parameter = {
+      userName,
+      password,
+      fistName,
+      lastName,
+   };
 
-function giveInfo(userName, Password, fistName, lastName) {
-   let anotherInfo = {
-      User:userName,
-       Password:Password,
-        fName:fistName,
-         lName:lastName
-      };
-   let i = Info.length
-   Info[i] = anotherInfo;
-   render()
-}
+   addUser(parameter);
+};
+
+function addUser(parameter) {
+   const anotherInfo = {
+      user: parameter.userName,
+      password: parameter.password,
+      fName: parameter.fistName,
+      lName: parameter.lastName
+   };
+   info.push(anotherInfo);
+   render();
+   infoStorage()
+};
 
 function render() {
 
-   headerNum = 0
-   const element = document.getElementById("rowBody");
-   while (element.firstChild) {
-      element.removeChild(element.firstChild);
+   headerNum = 0;
+   const rowBody = document.getElementById("rowBody");
+   if (rowBody != null) {
+      while (rowBody.firstChild) {
+         rowBody.removeChild(rowBody.firstChild);
+      }
    }
 
-   for (let n = 0; n < Info.length; n++) {
+   for (let n = 0; n < info.length; n++) {
 
       const headerRow = document.createElement("tr");
-      headerRow.setAttribute("id", headerNum + "/" + 5)
+      headerRow.setAttribute("id", headerNum + "/" + 5);
       let cellNum = 1;
 
-      Object.values(Info[n]).forEach((headerText) => {
+      Object.values(info[n]).forEach((headerText) => {
          const headerCell = document.createElement("th");
          headerCell.innerHTML = headerText;
          headerCell.setAttribute("id", headerNum + "/" + cellNum);
          headerRow.append(headerCell);
-         cellNum++
+         cellNum++;
       });
 
       const headerButton1 = document.createElement("button");
-      headerButton1.innerHTML = "Delete";
-      headerButton1.setAttribute("class", "ButtonHead")
+      headerButton1.innerHTML = "delete";
+      headerButton1.setAttribute("class", "buttonHead");
       headerButton1.setAttribute("id", headerNum);
       headerButton1.onclick = function () {
 
-         let thisNum = this.id
-         Info.splice(thisNum, 1)
-         headerNum = Info.length
-         render()
+         const thisNum = this.id;
+         delete(thisNum)
+         headerNum = info.length;
+         render();
 
       };
 
       const headerButton2 = document.createElement("button");
-      headerButton2.innerHTML = "Edit";
-      headerButton2.setAttribute("class", "ButtonHead2")
+      headerButton2.innerHTML = "edit";
+      headerButton2.setAttribute("class", "buttonHead2");
       headerButton2.setAttribute("id", headerNum + "/" + 6);
       headerButton2.onclick = function () {
-         document.getElementById("editForm").style.visibility = "visible"
-         Num = headerButton2.id.split("/")[0]
+
+         document.getElementById("editForm").style.visibility = "visible";
+         num = headerButton2.id.split("/")[0];
+
+         document.getElementById("userEdit").value = info[num].user;
+         document.getElementById("passEdit").value = info[num].password;
+         document.getElementById("fNameEdit").value = info[num].fName;
+         document.getElementById("lNameEdit").value = info[num].lName;
 
       }
       document.getElementById("saveEdit").onclick = function () {
 
-         Info[Num].User = document.getElementById("User2").value
-         Info[Num].Password = document.getElementById("Pass2").value
-         Info[Num].fName = document.getElementById("fName2").value
-         Info[Num].lName = document.getElementById("lName2").value
+         let user = document.getElementById("userEdit").value;
+         let password = document.getElementById("passEdit").value;
+         let fName = document.getElementById("fNameEdit").value;
+         let lName = document.getElementById("lNameEdit").value;
 
-         document.getElementById("EditForm").style.visibility = "hidden"
+         Edit(user, password, fName, lName, num)
 
-         render()
+         document.getElementById("editForm").style.visibility = "hidden";
+
+         render();
       };
 
       headerNum++;
@@ -114,8 +141,23 @@ function render() {
 
 
 function Switch() {
+   info.reverse();
+   infoStorage()
+   render();
+}
 
-   Info.reverse()
-   render()
+function Delete(Id) {
+   info.splice(Id, 1)
+   infoStorage()
+}
 
+function Edit(user, password, fName, lName, Id) {
+   debugger
+
+   info[Id].user = user
+   info[Id].password = password
+   info[Id].fName = fName
+   info[Id].lName = lName
+
+   infoStorage()
 }
