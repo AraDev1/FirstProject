@@ -95,8 +95,6 @@ function render() {
       headerButton1.setAttribute("id", headerNum);
       headerButton1.onclick = function () {
 
-         debugger
-
          const thisNum = this.id;
          Delete(thisNum)
          headerNum = info.length;
@@ -155,7 +153,6 @@ function Delete(Id) {
 }
 
 function Edit(user, password, fName, lName, Id) {
-   debugger
 
    info[Id].user = user
    info[Id].password = password
