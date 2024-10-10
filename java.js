@@ -2,19 +2,19 @@ function openAddUser() {
 
    document.getElementById("myForm").style.visibility = "visible";
 
-};
+}
 
 function closeAddUser() {
 
    document.getElementById("myForm").style.visibility = "hidden";
 
-};
+}
 
 function closeEdit() {
 
    document.getElementById("editForm").style.visibility = "hidden";
 
-};
+}
 
 
 
@@ -35,9 +35,9 @@ const info = []
       }
    }
 
- const myTimeOut = setTimeout(render, 1500)
+setTimeout(render, 200)
 
-function saveFunc() {
+function saveUser() {
 
    const userName = document.getElementById("User").value;
    const password = document.getElementById("Pass").value;
@@ -96,10 +96,10 @@ function render() {
       headerButton1.onclick = function () {
 
          const thisNum = this.id;
-         Delete(thisNum)
+         deleteUser(thisNum)
          headerNum = info.length;
          render();
-      };
+      }
 
       const headerButton2 = document.createElement("button");
       headerButton2.innerHTML = "Edit";
@@ -123,12 +123,12 @@ function render() {
          let fName = document.getElementById("fNameEdit").value;
          let lName = document.getElementById("lNameEdit").value;
 
-         Edit(user, password, fName, lName, num)
+         edit(user, password, fName, lName, num)
 
          document.getElementById("editForm").style.visibility = "hidden";
 
          render();
-      };
+      }
 
       headerNum++;
       document.getElementById("rowBody").append(headerRow);
@@ -136,21 +136,21 @@ function render() {
       headerRow.append(headerButton2);
 
    }
-};
+}
 
 
-function Switch() {
+function Reverse() {
    info.reverse();
    infoStorage()
    render();
 }
 
-function Delete(Id) {
+function deleteUser(Id) {
    info.splice(Id, 1)
    infoStorage()
 }
 
-function Edit(user, password, fName, lName, Id) {
+function edit(user, password, fName, lName, Id) {
 
    info[Id].user = user
    info[Id].password = password
