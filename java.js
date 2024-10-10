@@ -35,7 +35,9 @@ const info = []
       }
    }
 
-setTimeout(render, 2)
+   document.addEventListener("DOMContentLoaded", () => {
+      render()
+    });
 
 function saveUser() {
 
