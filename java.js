@@ -37,7 +37,6 @@ const info = []
 
 
 function saveFunc() {
-   debugger
 
    const userName = document.getElementById("User").value;
    const password = document.getElementById("Pass").value;
