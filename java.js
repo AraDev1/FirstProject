@@ -98,9 +98,9 @@ function render() {
          debugger
 
          const thisNum = this.id;
+         Delete(thisNum)
          headerNum = info.length;
          render();
-         Delete(thisNum)
 
       };
 
