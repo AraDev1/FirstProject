@@ -35,7 +35,7 @@ const info = []
       }
    }
 
-setTimeout(render, 200)
+setTimeout(render, 2)
 
 function saveUser() {
 
