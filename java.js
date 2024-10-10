@@ -37,7 +37,9 @@ const info = []
 
 
 function saveFunc() {
-   const userName = document.getElementById("user").value;
+   debugger
+
+   const userName = document.getElementById("User").value;
    const password = document.getElementById("Pass").value;
    const fistName = document.getElementById("fName").value;
    const lastName = document.getElementById("lName").value;
@@ -94,10 +96,12 @@ function render() {
       headerButton1.setAttribute("id", headerNum);
       headerButton1.onclick = function () {
 
+         debugger
+
          const thisNum = this.id;
-         delete(thisNum)
          headerNum = info.length;
          render();
+         Delete(thisNum)
 
       };
 
@@ -118,8 +122,8 @@ function render() {
       }
       document.getElementById("saveEdit").onclick = function () {
 
-         let user = document.getElementById("userEdit").value;
-         let password = document.getElementById("passEdit").value;
+         let user = document.getElementById("UserEdit").value;
+         let password = document.getElementById("PassEdit").value;
          let fName = document.getElementById("fNameEdit").value;
          let lName = document.getElementById("lNameEdit").value;
 
