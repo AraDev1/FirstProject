@@ -44,13 +44,13 @@ function saveUser() {
    const fistName = document.getElementById("fName").value;
    const lastName = document.getElementById("lName").value;
 
-   const parameter = {
+   const params = {
       userName,
       password,
       fistName,
       lastName,
    };
-   addUser(parameter);
+   addUser(params);
 };
 
 function addUser(parameter) {
