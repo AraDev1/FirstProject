@@ -35,6 +35,7 @@ const info = []
       }
    }
 
+ const myTimeOut = setTimeout(render, 1500)
 
 function saveFunc() {
 
@@ -49,7 +50,6 @@ function saveFunc() {
       fistName,
       lastName,
    };
-
    addUser(parameter);
 };
 
@@ -99,7 +99,6 @@ function render() {
          Delete(thisNum)
          headerNum = info.length;
          render();
-
       };
 
       const headerButton2 = document.createElement("button");
@@ -137,7 +136,6 @@ function render() {
       headerRow.append(headerButton2);
 
    }
-
 };
 
 
